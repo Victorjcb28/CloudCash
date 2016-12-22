@@ -46,6 +46,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="card card-container">
+                    @include('alerts.errors')
+                    @include('alerts.success')
+                    @include('alerts.repetido')
                     <img src="images/logo1.png" alt="" style="width: 40%;">
 
                     {!!Form::open(['route'=>'log.store','method'=>'POST','class'=>'login'])!!}
@@ -53,7 +56,7 @@
 
                     <div class="form-group">
                         {!! Form::label('Email:') !!}
-                        {!! Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa tu Email']) !!}
+                        {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Ingresa tu Email']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('Password:') !!}
@@ -69,12 +72,12 @@
                 {!! Form::button('Registrarse',['class'=>'btn btn-primary', 'id'=>'ocultar']) !!}
                 {!! Form::close() !!}
 
-                    {!!Form::open(['route'=>'log.create','method'=>'POST','class'=>'crear','style'=>'display:none;'])!!}
+                    {!!Form::open(['route'=>'usuario.store','method'=>'POST','class'=>'crear','style'=>'display:none;'])!!}
 
 
                     <div class="form-group">
                         {!! Form::label('Email:') !!}
-                        {!! Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa tu Email']) !!}
+                        {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Ingresa tu Email']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('Password:') !!}
