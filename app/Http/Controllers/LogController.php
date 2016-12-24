@@ -18,7 +18,7 @@ class LogController extends Controller
     public function store(loginrequest $request)
     {
         if (Auth::attempt(['email'=> $request['email'], 'password'=>$request['password']])){
-            return "Listo";
+            return Redirect::to('panel');
         }
         Session::flash('message-error','Datos Incorrectos');
         return view ('login');

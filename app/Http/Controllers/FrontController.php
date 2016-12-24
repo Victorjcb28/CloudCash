@@ -10,4 +10,9 @@ class FrontController extends Controller
     {
         return view ('index');
     }
+
+    public function panel()
+    {
+        return view ('panel.index');
+    }
 }
