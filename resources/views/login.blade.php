@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="images/logo.ico" type="image/x-icon" />
@@ -49,9 +51,10 @@
                     @include('alerts.errors')
                     @include('alerts.success')
                     @include('alerts.repetido')
+                    @include('sweet::alert')
                     <img src="images/logo1.png" alt="" style="width: 40%;">
 
-                    {!!Form::open(['route'=>'log.store','method'=>'POST','class'=>'login'])!!}
+                    {!!Form::open(['route'=>'log.store','method'=>'POST','class'=>'login','id'=>'login'])!!}
 
 
                     <div class="form-group">
@@ -68,11 +71,12 @@
                         </label>
                     </div>
 
-                {!! Form::Submit('Log In',['class'=>'btn btn-primary']) !!}
+
+                {!! Form::button('Log In',['class'=>'btn btn-primary','id'=>'prueba']) !!}
                 {!! Form::button('Registrarse',['class'=>'btn btn-primary', 'id'=>'ocultar']) !!}
                 {!! Form::close() !!}
 
-                    {!!Form::open(['route'=>'usuario.store','method'=>'POST','class'=>'crear','style'=>'display:none;'])!!}
+                    {!!Form::open(['route'=>'usuario.store','method'=>'POST','class'=>'crear','style'=>'display:none;','id'=>'create'])!!}
 
 
                     <div class="form-group">
@@ -89,7 +93,7 @@
                         </label>
                     </div>
 
-                {!! Form::Submit('Registrarse',['class'=>'btn btn-primary']) !!}
+                {!! Form::button('Registrarse',['class'=>'btn btn-primary','id'=>'createb']) !!}
                 {!! Form::button('Log In',['class'=>'btn btn-primary', 'id'=>'ocultar1']) !!}
                 {!! Form::close() !!}
 
@@ -150,6 +154,20 @@
         });
 
     });
+
+    $('button#createb').on('click', function(){
+        swal({
+                title: "Registro",
+                text: "Seguro Quiere Registrar?",         type: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes",
+                closeOnConfirm: false
+            },
+            function(){
+                $("#create").submit();
+            });
+    })
 </script>
 </body>
 </html>
