@@ -50,26 +50,48 @@
 
 
     <div class="row" id="show">
+
         <div class="col-md-6 col-md-offset-4 " style="padding-top: 20px;">
             <div class="panel panel-default" style="width: 300px;" id="calculadora">
                 <div class="panel-heading">
                     <h3 class="panel-title">Calculadora Interactiva</h3>
                 </div>
                 <div class="panel-body">
-                    <input type="text" id="txtbtc" name="txtbtc" value="1" class="input"> <button  disabled class="nombres">BTC</button>  <br>
-                    <input type="text" id="txtdolares" name="txtdolares" value="{{$usd}}" class="input"> <button  disabled class="nombres">USD</button><br>
-                    <input type="text" id="txtbolivares" name="txtbolivares" value="{{$bsf}}"> <button  disabled class="nombres">BSF</button>
+                    {!!Form::open(['route'=>'calculadora.store','method'=>'POST','class'=>'crear','id'=>'cotizar'])!!}
+
+
+                    <div class="form-group">
+                        {!! Form::label('Bitcoin') !!}
+                        {!! Form::text('btc',1,['class'=>'form-control','id'=>'txtbtc']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('Dolares') !!}
+                        {!! Form::text('usd',$usd,['class'=>'form-control','id'=>'txtdolares'])!!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('Bolivares') !!}
+                        {!! Form::text('bsf',$bsf,['class'=>'form-control','id'=>'txtbolivares'])!!}
+
+                    </div>
+
+                    <ul class="botonera">
+
+                        <li>
+                            {!! Form::button('Enviar',['class'=>'btn btn-success','id'=>'enviar']) !!}
+
+
+                        </li>
+
+
+                    </ul>
+
+
+
+                    {!! Form::close() !!}
+
                 </div>
 
-                <ul class="botonera">
 
-                    <li>
-                        <button id="enviar" class="btn btn-success">Enviar</button>
-
-                    </li>
-
-
-                </ul>
             </div>
         </div>
     </div>
@@ -169,43 +191,43 @@
 
 
 
-
-        $("#enviar").on( "click", function() {
-            var btc=$('#txtbtc').val();
-            var usd=$('#txtdolares').val();
-            var bsf=$('#txtbolivares').val();
-
-            /*alert('Cantidad Btc'+' '+ btc +
-                '\nCantidad Usd'+ ' '+ usd+
-                '\nCantidad Bsf'+' '+ bsf
-                */
-            swal("Here's a message!")
-            );
-
-
-
-
-
-
-        });
-
     </script>
 
     <script>
+
+
         $(document).on('click', '#enviar', function(e) {
             e.preventDefault();
             var link = $(this);
+            var btc=$('#txtbtc').val();
+            var usd=$('#txtdolares').val();
+            var bsf=$('#txtbolivares').val();
             swal({
-                    title: "Are you sure?",
-                    text: "Your will not be able to recover this imaginary file!",
-                    type: "warning",
+                    title: "Verifique su pedido",
+                    text: 'Cantidad Btc'+' '+ btc +
+                    '\nCantidad Usd'+ ' '+ usd+
+                    '\nCantidad Bsf'+' '+ bsf,
+                    type: "info",
                     showCancelButton: true,
-                    confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Yes, delete it!",
+                    confirmButtonClass: "btn-success",
+                    confirmButtonText: "Proceder",
                     closeOnConfirm: false
                 },
                 function(){
-                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                    swal({
+                        title: "Cotizacion Enviada",
+                        text: "I will close in 2 seconds.",
+                        type:"success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    },
+                    function () {
+                        $("#cotizar").submit();
+                    }
+
+                    );
+
+
                 });
         });
     </script>

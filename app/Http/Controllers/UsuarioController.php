@@ -9,7 +9,7 @@ use Cash\Http\Controllers\Controller;
 use Cash\User;
 use Session;
 use Redirect;
-
+use Alert;
 class UsuarioController extends Controller
 {
     public function store(Request $request)
@@ -33,7 +33,7 @@ class UsuarioController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
-        Session::flash('message-success','Usuario Creado');
+        Session::flash('message-success','Usuario Creado, Proceda a loguearse');
         return view ('login');
 
     }

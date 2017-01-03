@@ -72,7 +72,7 @@
                     </div>
 
 
-                {!! Form::button('Log In',['class'=>'btn btn-primary','id'=>'prueba']) !!}
+                {!! Form::submit('Log In',['class'=>'btn btn-primary','id'=>'prueba']) !!}
                 {!! Form::button('Registrarse',['class'=>'btn btn-primary', 'id'=>'ocultar']) !!}
                 {!! Form::close() !!}
 

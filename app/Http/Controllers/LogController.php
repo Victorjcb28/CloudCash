@@ -8,19 +8,25 @@ use Cash\Http\Requests\LoginRequest;
 use Auth;
 use Session;
 use Redirect;
+use Alert;
 
 class LogController extends Controller
 {
     public function index()
     {
         return view ('login');
+
+
     }
     public function store(loginrequest $request)
     {
         if (Auth::attempt(['email'=> $request['email'], 'password'=>$request['password']])){
+
             return Redirect::to('panel');
+
         }
-        Session::flash('message-error','Datos Incorrectos');
+        Alert::error('Datos Incorrectos', 'Oops!')->persistent("Close");
+
         return view ('login');
     }
 

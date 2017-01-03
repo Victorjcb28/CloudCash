@@ -42,7 +42,7 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    {!!Auth::user()->name!!} <span class="glyphicon glyphicon-user"></span>
+                    {!!Auth::user()->email!!} <span class="glyphicon glyphicon-user"></span>
 
 
             </li>
