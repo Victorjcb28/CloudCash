@@ -56,10 +56,10 @@
                         <a href="#"><span class="glyphicon glyphicon-usd"></span> Cotizar<span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{!!URL::to('/usuario/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                <a href="{!!URL::to('/calculadora')!!}"><i class='fa fa-plus fa-fw'></i> Calculadora</a>
                             </li>
                             <li>
-                                <a href="{!!URL::to('/usuario')!!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                <a href="{!!URL::to('/calculadora/calculadora')!!}"><i class='fa fa-list-ol fa-fw'></i> Transacciones</a>
                             </li>
 
                         </ul>
@@ -78,10 +78,7 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="{!!URL::to('/calculadora')!!}"><span class="glyphicon glyphicon-bitcoin"></span> Calculadora</a>
 
-                    </li>
 
                 </ul>
             </div>

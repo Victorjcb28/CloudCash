@@ -77,7 +77,10 @@
                 {!! Form::close() !!}
 
                     {!!Form::open(['route'=>'usuario.store','method'=>'POST','class'=>'crear','style'=>'display:none;','id'=>'create'])!!}
-
+                    <div class="form-group">
+                        {!! Form::label('Nombre Completo:') !!}
+                        {!! Form::email('name',null,['class'=>'form-control','placeholder'=>'Ingresa tu Email']) !!}
+                    </div>
 
                     <div class="form-group">
                         {!! Form::label('Email:') !!}
@@ -160,7 +163,7 @@
                 title: "Registro",
                 text: "Seguro Quiere Registrar?",         type: "info",
                 showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
+                confirmButtonClass: "btn-success",
                 confirmButtonText: "Yes",
                 closeOnConfirm: false
             },

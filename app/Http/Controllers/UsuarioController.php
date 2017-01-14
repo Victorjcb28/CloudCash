@@ -29,7 +29,7 @@ class UsuarioController extends Controller
         }
 
         $user = new User;
-        $user->name='victor';
+        $user->name=$request->name;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
